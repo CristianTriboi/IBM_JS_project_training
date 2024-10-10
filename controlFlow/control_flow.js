@@ -5,6 +5,7 @@ let userMessage;
 let userType = "subscriber";
 let userCategory;
 let isAuthenticated = true;
+let h2Body = document.querySelector("h2");
 
 
 if (userRole === "admin") {
@@ -41,7 +42,30 @@ switch (userType) {
 
 let authenticationStatus = isAuthenticated ? "Authenticated" : "Not authenticated";
 
+function selectDietary() {
+    let orgRole = document.getElementById('orgRole');
+    let orgRoleVal = orgRole.value;
+    
+    switch (orgRoleVal) {
+        case "Employee":
+            alert("authorized to have access to \"Dietary Services\"");ategory = "Administrator";
+            break;
+        case "Enrolled Member":
+            alert("authorized to have access to \"Dietary Services\" and one-on-one interaction with a dietician");
+            break;
+        case "Subscriber":
+            alert("authorized to have partial access to facilitate \"Dietary Services\" only");
+            break;
+        case "Non-Subscriber":
+            alert("enroll or at least subscribe first to avail this facility");
+            break;
+        default:
+            userCategory = "Unknown";
+    }
+}
+
 console.log("Access Level:", accessLevel);
 console.log("User Message:", userMessage);
 console.log("User Category:", userCategory);
 console.log("Authentication Status:", authenticationStatus);
+console.log("h2body:", h2Body);
